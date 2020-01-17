@@ -1,0 +1,16 @@
+Minimum contig length set to 1000.
+Reading seed list...
+Looking for seeds in sequences.
+	NODE_47_length_264430_cov_75.298866 [370.487077]
+	NODE_14364_length_14001_cov_37.558601 [184.317681]
+	NODE_17743_length_61761_cov_30.108337 [148.347861]
+	NODE_18350_length_127793_cov_15.016331 [73.764163]
+	NODE_18960_length_4625_cov_7.387459 [36.501603]
+	NODE_20166_length_26437_cov_7.433710 [36.202182]
+	NODE_22511_length_8376_cov_6.555038 [33.308304]
+	NODE_26220_length_3732_cov_6.950964 [32.791337]
+	NODE_30090_length_2106_cov_6.051757 [28.961111]
+Get 9 seeds.
+
+Start EM process.
+Iteration 1

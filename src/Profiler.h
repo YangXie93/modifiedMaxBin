@@ -15,7 +15,8 @@ class Profiler
 		void addProfile(Profiler *pf, long double weight);
 		void calcProfile();
 		//added for new distProb
-		char* getSequenceCopy();
+		const char* getSequence();
+		double* getNormDiffProfile(double *other);
 	private:
 		// Variables
 		int kmerlen;
@@ -25,6 +26,7 @@ class Profiler
 		kmerMap *kmap;
 		long double total_weight;
 		//added for new distProb
+		int profileLen;
 		const char* sequence;
 		// Functions
 		void computeProfile(const char *seq);

@@ -107,6 +107,8 @@ class EManager
 		void logtime_end();
 		void threadfunc_E(long double abund, int k);
 		void threadfunc_M(int i);
+		//added for new distProb
+		long double newDistProb(const char* seq1,const char* seq2);
 };
 
 

@@ -276,7 +276,7 @@ conftest.c:25:22: warning: null argument where non-null required (argument 1) [-
                       pthread_create(0,0,0,0); pthread_cleanup_pop(0);
                       ^~~~~~~~~~~~~~
 conftest.c:25:22: warning: null argument where non-null required (argument 3) [-Wnonnull]
-/tmp/ccHz11IA.o: In function `main':
+/tmp/cc8CqbGY.o: In function `main':
 /home/yang/zuUntersuchen/newProbDistMaxBin/auxiliary/hmmer-3.1b1/conftest.c:23: undefined reference to `pthread_join'
 /home/yang/zuUntersuchen/newProbDistMaxBin/auxiliary/hmmer-3.1b1/conftest.c:24: undefined reference to `__pthread_register_cancel'
 /home/yang/zuUntersuchen/newProbDistMaxBin/auxiliary/hmmer-3.1b1/conftest.c:25: undefined reference to `pthread_create'
@@ -573,7 +573,7 @@ configure:6443: gcc -o conftest -O3 -fomit-frame-pointer -fstrict-aliasing   con
 configure:6447: $? = 0
 configure:6453: ./conftest
 configure:6457: $? = 0
-configure:6474: result: 506e3:2100800:7ffafbff:bfebfbff
+configure:6474: result: 506e3:6100800:7ffafbff:bfebfbff
 configure:6719: checking whether C compiler accepts -march=pentiumpro
 configure:6744: gcc -c -march=pentiumpro  conftest.c >&5
 cc1: error: CPU you selected does not support x86-64 instruction set
@@ -1208,7 +1208,7 @@ ax_cv_c_flags__mpentiumpro=no
 ax_cv_c_flags__msse2=yes
 ax_cv_gcc_archflag=unknown
 ax_cv_gcc_x86_cpuid_0=16:756e6547:6c65746e:49656e69
-ax_cv_gcc_x86_cpuid_1=506e3:2100800:7ffafbff:bfebfbff
+ax_cv_gcc_x86_cpuid_1=506e3:6100800:7ffafbff:bfebfbff
 
 ## ----------------- ##
 ## Output variables. ##

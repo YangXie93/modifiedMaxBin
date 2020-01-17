@@ -4,7 +4,7 @@
 #include "EucDist.h"
 #include "AbundanceLoader.h"
 #include <fstream>
-#include "../pybind11/embed.h"
+#include <pybind11/embed.h>
 /*
     #include "boost/random.hpp"
     #include "boost/generator_iterator.hpp"
@@ -658,14 +658,14 @@ void EManager::run_EM(int run_time)
             diff_count = 0;
             for (i = 0; i < seqnum; i++)
             {
+                std::cout << i << std::endl;
                 if (seq->getSeqLenByNum(i) >= min_seq_length && is_profile_N[i] == false)
                 {
                     // Calculate tetramer probability
                     sum = 0;
                     for (j = 0; j < seed_num; j++)
                     {
-                        d = edist.getDist((double*)seq_profile[i]->getProfile(), (double*)seed_profile[j]->getProfile());
-                        dist_prob[j] = get_prob_dist(d);
+                        dist_prob[j] = newDistProb(seq_profile[i]->getSequence(),seed_profile[j]->getSequence());
                         if (dist_prob[j] < VERY_SMALL_DOUBLE)
                         {
                             dist_prob[j] = VERY_SMALL_DOUBLE;
@@ -1018,7 +1018,7 @@ bool EManager::classify(long double min_prob, unsigned int min_seqlen)
     int i, j, k;
     long double max, sum, d;
     bool ret;
-    
+    std::cout << "classify!!!!!!!!!!!!!!!!!!!\n";
     ThreadPool *thread_pool = new ThreadPool(threadnum);
     
     EucDist edist(kmer_len);
@@ -1082,7 +1082,7 @@ bool EManager::classify(long double min_prob, unsigned int min_seqlen)
                     for (j = 0; j < seed_num; j++)
                     {
                         
-                        dist_prob[j] = newDistProb(seq_profile[i]->getSequenceCopy(),seed_profile[j]->getSequneceCopy());
+                        dist_prob[j] = newDistProb(seq_profile[i]->getSequence(),seed_profile[j]->getSequence());
                         sum = sum + dist_prob[j];
                     }
                     for (j = 0; j < seed_num; j++)
@@ -1546,9 +1546,8 @@ void EManager::write_fasta(char *seq, fstream *fs)
 // added for newProbDist
 namespace py = pybind11;
     
-long double newProbDistt(char* seq1,char* seq2)
+long double EManager::newDistProb(const char* seq1,const char* seq2)
 {
-    long double cRes = 0.0;
     py::scoped_interpreter guard{};
         
     py::module mod = py::module::import("randomProb");

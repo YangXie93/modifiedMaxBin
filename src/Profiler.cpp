@@ -20,11 +20,9 @@ Profiler::~Profiler()
 	free(profile);
 }
 //added for newProbDist
-char* Profiler::getSequenceCopy()
+const char* Profiler::getSequence()
 {
-	cpy = char[strlen(sequence)]
-	memcpy(cpy,sequence,strlen(sequence))
-	return cpy;
+	return sequence;
 }
 
 double* Profiler::getProfile()
@@ -85,6 +83,7 @@ void Profiler::computeProfile(const char *seq)
 	N = 0;
 	total = 0;
 	len = strlen(seq);
+	profileLen = len - kmerlen + 1;
 	for (i = 0; i < len - kmerlen + 1; i++)
 	{
 		if (seq[i] == 'N')
@@ -125,4 +124,14 @@ void Profiler::computeProfile(const char *seq)
 			profile[i] = profile[i] / total;
 		}
 	}
+}
+
+double* Profiler::getNormDiffProfile(double *other)
+{
+    double res[profileLen];
+    for(int i = 0; i < profileLen;i++)
+    {
+           res[i] = (*(profile +i) - *(other +i))/2;
+    }
+    return res;
 }

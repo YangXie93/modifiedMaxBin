@@ -1,0 +1,9 @@
+MaxBin 2.2.7
+Input contig: /home/yang/zuUntersuchen/MaxBin_test_data/80x.scaffold
+Located abundance file [/home/yang/zuUntersuchen/MaxBin_test_data/80x.abund]
+out header: test1
+Searching against 107 marker genes to find starting seed contigs for [/home/yang/zuUntersuchen/MaxBin_test_data/80x.scaffold]...
+Done data collection. Running MaxBin...
+Command: /home/yang/zuUntersuchen/newProbDistMaxBin/src/MaxBin -fasta test1.contig.tmp  -abund test1.contig.tmp.abund1 -seed test1.seed -out test1 -min_contig_length 1000 
+Error encountered while running core MaxBin program. Error recorded in test1.log.
+Program Stop.
